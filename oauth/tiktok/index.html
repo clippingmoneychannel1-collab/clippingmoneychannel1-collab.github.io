@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="referrer" content="no-referrer"><title>Returning to Clipping Agent…</title></head><body>
+<p>Returning to the local Clipping Agent…</p>
+<script>
+// Fixed target: the owner's local app. Forwards only the OAuth result parameters.
+var q = new URLSearchParams(location.search), out = new URLSearchParams();
+["code", "state", "scopes", "error", "error_description"].forEach(function (k) { if (q.has(k)) out.set(k, q.get(k)); });
+location.replace("http://localhost:3000/api/oauth/tiktok/callback?" + out.toString());
+</script>
+</body></html>
